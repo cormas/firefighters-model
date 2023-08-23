@@ -38,6 +38,7 @@ FFModel >> initLandscape [
 
 { #category : #control }
 FFModel >> step: t [
+	self stepSynchronouslyCA: t
 ]
 
 { #category : #accessing }
