@@ -32,7 +32,8 @@ FFModel >> initLandscape [
 		              selectRandomlyFrom: self thePlots
 		              subCollectionSize:
 		              (self forestRatio * self thePlots size) asInteger.
-	emptyPlots do: [ :aPlot | aPlot state: 'empty' ]
+	emptyPlots do: [ :aPlot | aPlot state: 'empty' ].
+	self pickCell state: 'fire'
 ]
 
 { #category : #control }
