@@ -2,7 +2,7 @@
 My Fireman agent
 "
 Class {
-	#name : 'FMFireman',
+	#name : 'FMFirefighter',
 	#superclass : 'CMAgent',
 	#traits : 'TCMLocated',
 	#classTraits : 'TCMLocated classTrait',
@@ -12,44 +12,44 @@ Class {
 	#classInstVars : [
 		'perceptionRange'
 	],
-	#category : 'FireFighters-Model',
-	#package : 'FireFighters-Model'
+	#category : 'Firefighters-Model',
+	#package : 'Firefighters-Model'
 }
 
 { #category : 'class initialization' }
-FMFireman class >> initializeParameters [ 
+FMFirefighter class >> initializeParameters [ 
 	super initializeParameters.
 
 	perceptionRange := 1
 ]
 
 { #category : 'accessing' }
-FMFireman class >> perceptionRange [
+FMFirefighter class >> perceptionRange [
 
 	^ perceptionRange
 ]
 
 { #category : 'accessing' }
-FMFireman class >> perceptionRange: aPositiveInteger [
+FMFirefighter class >> perceptionRange: aPositiveInteger [
 
 	perceptionRange := aPositiveInteger
 ]
 
 { #category : 'control' }
-FMFireman >> extinguish [
+FMFirefighter >> extinguish [
 
 	self patch isFire ifTrue: [ self patch beEmpty ].
 ]
 
 { #category : 'initialization' }
-FMFireman >> initialize [
+FMFirefighter >> initialize [
 
 	super initialize.
 	self class perceptionRange: 1.
 ]
 
 { #category : 'control' }
-FMFireman >> patrol [
+FMFirefighter >> patrol [
 
 	| neighboursOnFire destination visiblePatchs |
 	self patch isFire ifTrue: [ ^ self ].
@@ -64,7 +64,7 @@ FMFireman >> patrol [
 ]
 
 { #category : 'control' }
-FMFireman >> step [
+FMFirefighter >> step [
 
 	self patrol; extinguish.
 

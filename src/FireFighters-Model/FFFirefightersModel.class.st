@@ -2,7 +2,7 @@
 Main class (Scheduler) of the Firemen Model.
 "
 Class {
-	#name : 'FMFiremenModel',
+	#name : 'FFFirefightersModel',
 	#superclass : 'CMAbstractModel',
 	#instVars : [
 		'plots',
@@ -11,40 +11,40 @@ Class {
 	#classInstVars : [
 		'forestRatio'
 	],
-	#category : 'FireFighters-Model',
-	#package : 'FireFighters-Model'
+	#category : 'Firefighters-Model',
+	#package : 'Firefighters-Model'
 }
 
 { #category : 'accessing' }
-FMFiremenModel class >> forestRatio [
+FFFirefightersModel class >> forestRatio [
 
 	^ forestRatio
 ]
 
 { #category : 'accessing' }
-FMFiremenModel class >> forestRatio: anObject [
+FFFirefightersModel class >> forestRatio: anObject [
 
 	forestRatio := anObject
 ]
 
 { #category : 'accessing' }
-FMFiremenModel class >> initializeParameters [ 
+FFFirefightersModel class >> initializeParameters [ 
 
 	super initializeCellClass.
 	forestRatio := 0.5
 ]
 
 { #category : 'init' }
-FMFiremenModel >> basicCreation [
+FFFirefightersModel >> basicCreation [
 
 	<init>
 	self basicLandscape.
 	"self createN: 10 randomlyLocatedEntities: FMFireman."
-	self createN: 10 randomlyLocatedEntities: FMFireman constrainedBy: #isForest
+	self createN: 10 randomlyLocatedEntities: FMFirefighter constrainedBy: #isForest
 ]
 
 { #category : 'init' }
-FMFiremenModel >> basicCreationFullForest [
+FFFirefightersModel >> basicCreationFullForest [
 
 	<init>
 	|  firePlot |
@@ -59,7 +59,7 @@ FMFiremenModel >> basicCreationFullForest [
 ]
 
 { #category : 'init' }
-FMFiremenModel >> basicLandscape [
+FFFirefightersModel >> basicLandscape [
 
 	<init>
 	| forestPlots firePlot |
@@ -77,7 +77,7 @@ FMFiremenModel >> basicLandscape [
 ]
 
 { #category : 'control' }
-FMFiremenModel >> basicStep [
+FFFirefightersModel >> basicStep [
 
 	<control>
 	plots do: #newState.
@@ -87,14 +87,14 @@ FMFiremenModel >> basicStep [
 ]
 
 { #category : 'accessing' }
-FMFiremenModel >> firemen [
+FFFirefightersModel >> firefighters [
 
-	<getterFor: #FMFireman >
+	<getterFor: #FMFirefighter >
 	^ firemen
 ]
 
 { #category : 'init' }
-FMFiremenModel >> initialize [
+FFFirefightersModel >> initialize [
 
 	super initialize.
 	firemen := OrderedCollection new.
@@ -102,28 +102,28 @@ FMFiremenModel >> initialize [
 ]
 
 { #category : 'probes' }
-FMFiremenModel >> numberOfEmptyPlots [
+FFFirefightersModel >> numberOfEmptyPlots [
 
 	<probeNamed: 'Number of empty plots' color: 'EBE0C7'>
 	^ (plots select: #isEmpty) size
 ]
 
 { #category : 'probes' }
-FMFiremenModel >> numberOfExtinguishedPlots [
+FFFirefightersModel >> numberOfExtinguishedPlots [
 
 	<probeNamed: 'Number of extinguished plots' color: '808080'>
 	^ (plots select: #isEmpty) size - 450
 ]
 
 { #category : 'probes' }
-FMFiremenModel >> numberOfForestedPlots [
+FFFirefightersModel >> numberOfForestedPlots [
 
 	<probeNamed: 'Number of forested plots' color: '00FF00'>
 	^ (plots select: #isForest) size
 ]
 
 { #category : 'probes' }
-FMFiremenModel >> numberOfPlotsOnFire [
+FFFirefightersModel >> numberOfPlotsOnFire [
 
 	<probeNamed: 'Number of plots on fire' color: 'FF0000'>
 	"Color red asHexString." 
@@ -131,7 +131,7 @@ FMFiremenModel >> numberOfPlotsOnFire [
 ]
 
 { #category : 'accessing' }
-FMFiremenModel >> plots [
+FFFirefightersModel >> plots [
 
 	<getterFor: #FMPlot>
 	^ plots
