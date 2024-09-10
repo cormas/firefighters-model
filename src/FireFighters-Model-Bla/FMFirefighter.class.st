@@ -12,8 +12,8 @@ Class {
 	#classInstVars : [
 		'perceptionRange'
 	],
-	#category : 'Firefighters-Model',
-	#package : 'Firefighters-Model'
+	#category : 'FireFighters-Model-Bla',
+	#package : 'FireFighters-Model-Bla'
 }
 
 { #category : 'class initialization' }

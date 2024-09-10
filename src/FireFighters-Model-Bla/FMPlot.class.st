@@ -4,8 +4,8 @@ Plot of the landscape
 Class {
 	#name : 'FMPlot',
 	#superclass : 'CMSpatialEntityCell',
-	#category : 'Firefighters-Model',
-	#package : 'Firefighters-Model'
+	#category : 'FireFighters-Model-Bla',
+	#package : 'FireFighters-Model-Bla'
 }
 
 { #category : 'accessing' }

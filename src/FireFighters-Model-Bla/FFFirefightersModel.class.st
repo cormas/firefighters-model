@@ -11,8 +11,8 @@ Class {
 	#classInstVars : [
 		'forestRatio'
 	],
-	#category : 'Firefighters-Model',
-	#package : 'Firefighters-Model'
+	#category : 'FireFighters-Model-Bla',
+	#package : 'FireFighters-Model-Bla'
 }
 
 { #category : 'accessing' }
