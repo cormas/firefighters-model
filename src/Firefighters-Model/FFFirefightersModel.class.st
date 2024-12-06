@@ -30,7 +30,7 @@ FFFirefightersModel class >> forestRatio: anObject [
 { #category : 'accessing' }
 FFFirefightersModel class >> initializeParameters [ 
 
-	super initializeCellClass.
+	super initializeParameters.
 	forestRatio := 0.5
 ]
 
