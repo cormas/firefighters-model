@@ -63,6 +63,15 @@ FMFirefighter >> patrol [
 	self moveTo: destination
 ]
 
+{ #category : 'pov' }
+FMFirefighter >> pov [
+
+	<pov>
+	^ CMPointOfView
+		shape: #star
+		size: 0.8.
+]
+
 { #category : 'control' }
 FMFirefighter >> step [
 
