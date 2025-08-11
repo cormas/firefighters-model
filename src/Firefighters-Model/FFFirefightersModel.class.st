@@ -16,6 +16,12 @@ Class {
 }
 
 { #category : 'accessing' }
+FFFirefightersModel class >> aboutThisModel [
+
+	^ 'Simulates wildfire spread and firefighter coordination in a 900-ha monospecific forest. The landscape is a 30×30 grid (1 ha cells), initially half forested. Fire spreads each hour to adjacent forested plots; 12 firefighters patrol, detect, and extinguish fires. Agents can operate independently or in information-sharing groups of various sizes to assess how coordination affects burnt area, containment time, and other performance metrics.'
+]
+
+{ #category : 'accessing' }
 FFFirefightersModel class >> forestRatio [
 
 	^ forestRatio
