@@ -40,6 +40,12 @@ FFFirefightersModel class >> initializeParameters [
 	forestRatio := 0.5
 ]
 
+{ #category : 'accessing' }
+FFFirefightersModel class >> modelName [
+
+	^ 'Firefighters'
+]
+
 { #category : 'init' }
 FFFirefightersModel >> basicCreation [
 
