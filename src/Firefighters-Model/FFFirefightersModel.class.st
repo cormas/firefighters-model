@@ -89,9 +89,11 @@ FFFirefightersModel >> basicLandscape [
 	forestPlots := self
 		               selectRandomlyFrom: plots
 		               size: (plots size * self class forestRatio) rounded.
+		"If forestRatio is 0, do not set forest, neither fire"
+	forestPlots ifNotEmpty: [  
 	forestPlots do: #beForest.
 	firePlot := self selectRandomlyFrom: forestPlots.
-	firePlot beFire
+	firePlot beFire]
 ]
 
 { #category : 'control' }
