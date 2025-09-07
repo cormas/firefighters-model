@@ -3,7 +3,9 @@ Plot of the landscape
 "
 Class {
 	#name : 'FMPlot',
-	#superclass : 'CMSpatialEntityCell',
+	#superclass : 'CMCell',
+	#traits : 'TCMCellularAutomaton',
+	#classTraits : 'TCMCellularAutomaton classTrait',
 	#category : 'Firefighters-Model',
 	#package : 'Firefighters-Model'
 }
