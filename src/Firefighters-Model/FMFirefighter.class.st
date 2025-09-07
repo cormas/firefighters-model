@@ -4,8 +4,6 @@ My Fireman agent
 Class {
 	#name : 'FMFirefighter',
 	#superclass : 'CMAgent',
-	#traits : 'TCMLocated',
-	#classTraits : 'TCMLocated classTrait',
 	#instVars : [
 		'perceptionRange'
 	],
