@@ -36,7 +36,7 @@ FMFirefighter class >> perceptionRange: aPositiveInteger [
 { #category : 'control' }
 FMFirefighter >> extinguish [
 
-	self patch isFire ifTrue: [ self patch beEmpty ].
+	self cell isFire ifTrue: [ self cell beEmpty ].
 ]
 
 { #category : 'initialization' }
@@ -50,7 +50,7 @@ FMFirefighter >> initialize [
 FMFirefighter >> patrol [
 
 	| neighboursOnFire destination visiblePatchs |
-	self patch isFire ifTrue: [ ^ self ].
+	self cell isFire ifTrue: [ ^ self ].
 	visiblePatchs := (self locationsWithinRadius: self class perceptionRange).
 	neighboursOnFire := visiblePatchs select: #isFire.
 	neighboursOnFire
