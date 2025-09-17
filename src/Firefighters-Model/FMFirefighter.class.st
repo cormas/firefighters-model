@@ -70,6 +70,15 @@ FMFirefighter >> pov [
 		size: 0.8.
 ]
 
+{ #category : 'pov' }
+FMFirefighter >> povImage [
+
+	<pov>
+	^ CMPointOfView
+		tile: CMTileset firefighter
+		size: 0.8.
+]
+
 { #category : 'control' }
 FMFirefighter >> step [
 

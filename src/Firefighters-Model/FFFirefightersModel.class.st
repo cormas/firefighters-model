@@ -83,7 +83,7 @@ FFFirefightersModel >> basicLandscape [
 	self
 		createGridNumberOfRows: 30
 		numberOfColumns: 30
-		neighbourhood: 8
+		neighbourhood: 6
 		closed: true.
 		
 	plots := self @@ FMPlot.
