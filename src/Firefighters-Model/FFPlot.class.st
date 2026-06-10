@@ -2,7 +2,7 @@
 Plot of the landscape
 "
 Class {
-	#name : 'FMPlot',
+	#name : 'FFPlot',
 	#superclass : 'CMCell',
 	#traits : 'TCMCellularAutomaton',
 	#classTraits : 'TCMCellularAutomaton classTrait',
@@ -11,23 +11,23 @@ Class {
 }
 
 { #category : 'accessing' }
-FMPlot >> beEmpty [
+FFPlot >> beEmpty [
 
 	state := #empty
 ]
 
 { #category : 'accessing' }
-FMPlot >> beFire [
+FFPlot >> beFire [
 	state := #fire.
 ]
 
 { #category : 'accessing' }
-FMPlot >> beForest [ 
+FFPlot >> beForest [ 
 	state := #forest.
 ]
 
 { #category : 'initialization' }
-FMPlot >> initialize [
+FFPlot >> initialize [
 
 	super initialize.
 	self beEmpty.
@@ -35,26 +35,26 @@ FMPlot >> initialize [
 ]
 
 { #category : 'testing' }
-FMPlot >> isEmpty [
+FFPlot >> isEmpty [
 
 	^ state = #empty
 ]
 
 { #category : 'testing' }
-FMPlot >> isFire [
+FFPlot >> isFire [
 
 	^ state = #fire 
 ]
 
 { #category : 'testing' }
-FMPlot >> isForest [
+FFPlot >> isForest [
 
  
 	^ state = #forest
 ]
 
 { #category : 'control' }
-FMPlot >> newState [
+FFPlot >> newState [
 	"c'est la fonction de transition :
 si je suis en foret et qu'il y a un feu autour de moi, alors je deviendrai en feu (bufferState). Sinon, je ne change pas d'état"
 
@@ -67,7 +67,7 @@ si je suis en foret et qu'il y a un feu autour de moi, alors je deviendrai en fe
 ]
 
 { #category : 'pov' }
-FMPlot >> pov [
+FFPlot >> pov [
 
 	<pov>
 	| aColor |
