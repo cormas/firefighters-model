@@ -5,7 +5,8 @@ Class {
 	#name : 'FFFirefightersModel',
 	#superclass : 'CMModel',
 	#instVars : [
-		'forestRatio'
+		'forestRatio',
+		'numberOfFirefighters'
 	],
 	#classInstVars : [
 		'forestRatio'
@@ -44,7 +45,7 @@ FFFirefightersModel >> basicCreation [
 	<init>
 	self basicLandscape.
 	"self createN: 10 randomlyLocatedEntities: FMFireman."
-	self createN: 10 randomlyLocatedEntities: FFFirefighter constrainedBy: #isForest
+	self createN: numberOfFirefighters randomlyLocatedEntities: FFFirefighter constrainedBy: #isForest
 ]
 
 { #category : 'init' }
@@ -123,6 +124,18 @@ FFFirefightersModel >> numberOfExtinguishedPlots [
 
 	<probeNamed: 'Number of extinguished plots' color: '808080'>
 	^ ((self @@ FFPlot) select: #isEmpty) size - 450
+]
+
+{ #category : 'parameters' }
+FFFirefightersModel >> numberOfFirefighters [
+	<parameterIntegerMin: 1 max: 50 default: 10>
+	^ numberOfFirefighters 
+]
+
+{ #category : 'parameters' }
+FFFirefightersModel >> numberOfFirefighters: aNumber [
+
+	numberOfFirefighters := aNumber
 ]
 
 { #category : 'probes' }
