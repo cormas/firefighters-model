@@ -44,8 +44,11 @@ FFFirefightersModel >> basicCreation [
 
 	<init>
 	self basicLandscape.
-	"self createN: 10 randomlyLocatedEntities: FMFireman."
-	self createN: numberOfFirefighters randomlyLocatedEntities: FFFirefighter constrainedBy: #isForest
+
+	self
+		create: numberOfFirefighters
+		randomlyLocatedEntitiesOfClass: FFFirefighter
+		constrainedBy: #isForest
 ]
 
 { #category : 'init' }

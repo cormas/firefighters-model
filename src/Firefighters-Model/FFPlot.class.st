@@ -72,8 +72,8 @@ FFPlot >> pov [
 	<pov>
 	| aColor |
 	aColor := Color black.
-	self isForest ifTrue: [ aColor := Color green ].
-	self isFire ifTrue: [ aColor := Color red ].
-	self isEmpty ifTrue: [ aColor := Color paleTan ].
+	self isForest ifTrue: [ aColor := CMColor green ].
+	self isFire ifTrue: [ aColor := CMColor red ].
+	self isEmpty ifTrue: [ aColor := CMColor paleTan ].
 	^ CMPointOfView color: aColor
 ]

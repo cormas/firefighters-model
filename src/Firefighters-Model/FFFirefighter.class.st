@@ -49,8 +49,9 @@ FFFirefighter >> pov [
 
 	<pov>
 	^ CMPointOfView
+		color: CMColor blue
 		shape: #star
-		size: 0.8.
+		size: 0.9.
 ]
 
 { #category : 'pov' }
