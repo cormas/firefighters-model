@@ -59,8 +59,8 @@ FFFirefighter >> povImage [
 
 	<pov>
 	^ CMPointOfView
-		tile: CMTileset firefighter
-		size: 0.8.
+		tile: CMDefaultTileset firefighter
+		size: 0.6.
 ]
 
 { #category : 'control' }

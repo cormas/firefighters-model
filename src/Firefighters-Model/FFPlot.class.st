@@ -77,3 +77,17 @@ FFPlot >> pov [
 	self isEmpty ifTrue: [ aColor := CMColor paleTan ].
 	^ CMPointOfView color: aColor
 ]
+
+{ #category : 'pov' }
+FFPlot >> povImage [
+
+	<pov>
+	| tile |
+	tile := CMDefaultTileset grassLight.
+	
+	self isForest ifTrue: [ tile := tile add: CMDefaultTileset tree scaledDownTo: 0.7 ].
+	self isFire ifTrue: [ tile := tile add: CMDefaultTileset treeFire scaledDownTo: 0.7 ].
+	self isEmpty ifTrue: [ "do nothing" ].
+	
+	^ CMPointOfView tile: tile
+]

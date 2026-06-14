@@ -6,7 +6,9 @@ Class {
 	#superclass : 'CMModel',
 	#instVars : [
 		'forestRatio',
-		'numberOfFirefighters'
+		'numberOfFirefighters',
+		'numberOfRows',
+		'numberOfColumns'
 	],
 	#classInstVars : [
 		'forestRatio'
@@ -48,7 +50,7 @@ FFFirefightersModel >> basicCreation [
 	self
 		create: numberOfFirefighters
 		randomlyLocatedEntitiesOfClass: FFFirefighter
-		constrainedBy: #isForest
+		constrainedBy: #isEmpty
 ]
 
 { #category : 'init' }
@@ -75,8 +77,8 @@ FFFirefightersModel >> basicLandscape [
 	| plots forestPlots firePlot |
 	
 	self
-		createGridNumberOfRows: 30
-		numberOfColumns: 30
+		createGridNumberOfRows: numberOfRows
+		numberOfColumns: numberOfColumns 
 		neighbourhood: 6
 		closed: true.
 		
@@ -113,6 +115,30 @@ FFFirefightersModel >> forestRatio [
 FFFirefightersModel >> forestRatio: anObject [
 
 	forestRatio := anObject
+]
+
+{ #category : 'initialization' }
+FFFirefightersModel >> initSmall [
+
+	<init>
+	numberOfRows := 4.
+	numberOfColumns := 5.
+	numberOfFirefighters := 2.
+	
+	self basicCreation.
+	self useImagePov
+]
+
+{ #category : 'accessing' }
+FFFirefightersModel >> numberOfColumns [
+	<parameterIntegerMin: 1 max: 50 default: 30>
+	^ numberOfColumns
+]
+
+{ #category : 'accessing' }
+FFFirefightersModel >> numberOfColumns: anObject [
+
+	numberOfColumns := anObject
 ]
 
 { #category : 'probes' }
@@ -153,4 +179,30 @@ FFFirefightersModel >> numberOfPlotsOnFire [
 
 	<probeNamed: 'Number of plots on fire' color: 'FF0000'>
 	^ ((self @@ FFPlot) select: #isFire) size
+]
+
+{ #category : 'accessing' }
+FFFirefightersModel >> numberOfRows [
+	<parameterIntegerMin: 1 max: 50 default: 30>
+	^ numberOfRows
+]
+
+{ #category : 'accessing' }
+FFFirefightersModel >> numberOfRows: anObject [
+
+	numberOfRows := anObject
+]
+
+{ #category : 'as yet unclassified' }
+FFFirefightersModel >> useImagePov [
+
+	FFFirefighter activePovSelector: #povImage.
+	FFPlot activePovSelector: #povImage
+]
+
+{ #category : 'as yet unclassified' }
+FFFirefightersModel >> useSimplePov [
+
+	FFFirefighter activePovSelector: #pov.
+	FFPlot activePovSelector: #pov
 ]
