@@ -2,11 +2,8 @@
 My Fireman agent
 "
 Class {
-	#name : 'FMFirefighter',
+	#name : 'FFFirefighter',
 	#superclass : 'CMAgent',
-	#instVars : [
-		'perceptionRange'
-	],
 	#classInstVars : [
 		'perceptionRange'
 	],
@@ -14,40 +11,26 @@ Class {
 	#package : 'Firefighters-Model'
 }
 
-{ #category : 'class initialization' }
-FMFirefighter class >> initializeParameters [ 
-	super initializeParameters.
-
-	perceptionRange := 1
-]
-
 { #category : 'accessing' }
-FMFirefighter class >> perceptionRange [
-
+FFFirefighter class >> perceptionRange [
+	<parameterIntegerDefault: 1>
 	^ perceptionRange
 ]
 
 { #category : 'accessing' }
-FMFirefighter class >> perceptionRange: aPositiveInteger [
+FFFirefighter class >> perceptionRange: aNumber [
 
-	perceptionRange := aPositiveInteger
+	perceptionRange := aNumber
 ]
 
 { #category : 'control' }
-FMFirefighter >> extinguish [
+FFFirefighter >> extinguish [
 
 	self cell isFire ifTrue: [ self cell beEmpty ].
 ]
 
-{ #category : 'initialization' }
-FMFirefighter >> initialize [
-
-	super initialize.
-	self class perceptionRange: 1.
-]
-
 { #category : 'control' }
-FMFirefighter >> patrol [
+FFFirefighter >> patrol [
 
 	| neighboursOnFire destination visiblePatchs |
 	self cell isFire ifTrue: [ ^ self ].
@@ -62,16 +45,26 @@ FMFirefighter >> patrol [
 ]
 
 { #category : 'pov' }
-FMFirefighter >> pov [
+FFFirefighter >> pov [
 
 	<pov>
 	^ CMPointOfView
+		color: CMColor blue
 		shape: #star
-		size: 0.8.
+		size: 0.9.
+]
+
+{ #category : 'pov' }
+FFFirefighter >> povImage [
+
+	<pov>
+	^ CMPointOfView
+		tile: CMDefaultTileset firefighter
+		size: 0.6.
 ]
 
 { #category : 'control' }
-FMFirefighter >> step [
+FFFirefighter >> step [
 
 	self patrol; extinguish.
 
