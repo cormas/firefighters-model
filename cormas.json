@@ -1,0 +1,5 @@
+{
+	"baseline" : "FirefightersModel",
+	"summary" : "Wildfire and firefighters in a 900 ha forest, divided into 1 ha plots of which half are forested. Fire spreads every hour to the neighbouring forested plots while 12 firefighters patrol, detect and put out fires, alone or in groups that share information, to compare how coordination affects the burnt area and the time to contain the fire.",
+	"cormas" : "1.0-dev"
+}
