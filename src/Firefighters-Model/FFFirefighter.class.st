@@ -23,6 +23,25 @@ FFFirefighter class >> perceptionRange: aNumber [
 	perceptionRange := aNumber
 ]
 
+{ #category : 'aspects' }
+FFFirefighter >> aspectDefault: look [
+
+	<aspect>
+	look
+		color: CMColor blue;
+		shape: #star;
+		size: 0.9
+]
+
+{ #category : 'aspects' }
+FFFirefighter >> aspectImage: look [
+
+	<aspect>
+	look
+		tile: #firefighter;
+		size: 0.6
+]
+
 { #category : 'control' }
 FFFirefighter >> extinguish [
 
@@ -42,25 +61,6 @@ FFFirefighter >> patrol [
 		ifNotEmpty: [
 		destination := self selectRandomlyFrom: neighboursOnFire ].
 	self moveTo: destination
-]
-
-{ #category : 'pov' }
-FFFirefighter >> pov [
-
-	<pov>
-	^ CMPointOfView
-		color: CMColor blue
-		shape: #star
-		size: 0.9.
-]
-
-{ #category : 'pov' }
-FFFirefighter >> povImage [
-
-	<pov>
-	^ CMPointOfView
-		tile: CMDefaultTileset firefighter
-		size: 0.6.
 ]
 
 { #category : 'control' }

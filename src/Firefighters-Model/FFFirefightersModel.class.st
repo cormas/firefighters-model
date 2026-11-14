@@ -117,16 +117,15 @@ FFFirefightersModel >> forestRatio: anObject [
 	forestRatio := anObject
 ]
 
-{ #category : 'initialization' }
+{ #category : 'init' }
 FFFirefightersModel >> initSmall [
 
 	<init>
 	numberOfRows := 4.
 	numberOfColumns := 5.
 	numberOfFirefighters := 2.
-	
-	self basicCreation.
-	self useImagePov
+
+	self basicCreation
 ]
 
 { #category : 'accessing' }
@@ -193,16 +192,12 @@ FFFirefightersModel >> numberOfRows: anObject [
 	numberOfRows := anObject
 ]
 
-{ #category : 'as yet unclassified' }
-FFFirefightersModel >> useImagePov [
+{ #category : 'perspectives' }
+FFFirefightersModel >> perspectiveImages [
+	"Show the plots and the firefighters with pictures, which suits small grids"
 
-	FFFirefighter activePovSelector: #povImage.
-	FFPlot activePovSelector: #povImage
-]
-
-{ #category : 'as yet unclassified' }
-FFFirefightersModel >> useSimplePov [
-
-	FFFirefighter activePovSelector: #pov.
-	FFPlot activePovSelector: #pov
+	<perspective>
+	^ CMPerspective new
+		  show: FFPlot as: #aspectImage:;
+		  show: FFFirefighter as: #aspectImage:
 ]

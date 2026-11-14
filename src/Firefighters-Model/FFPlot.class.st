@@ -10,6 +10,27 @@ Class {
 	#package : 'Firefighters-Model'
 }
 
+{ #category : 'aspects' }
+FFPlot >> aspectDefault: look [
+
+	<aspect>
+	| aColor |
+	aColor := Color black.
+	self isForest ifTrue: [ aColor := CMColor green ].
+	self isFire ifTrue: [ aColor := CMColor red ].
+	self isEmpty ifTrue: [ aColor := CMColor paleTan ].
+	look color: aColor
+]
+
+{ #category : 'aspects' }
+FFPlot >> aspectImage: look [
+
+	<aspect>
+	look tile: #grassLight.
+	self isForest ifTrue: [ look overlayTile: #tree scaledTo: 0.7 ].
+	self isFire ifTrue: [ look overlayTile: #treeFire scaledTo: 0.7 ]
+]
+
 { #category : 'accessing' }
 FFPlot >> beEmpty [
 
@@ -64,30 +85,4 @@ si je suis en foret et qu'il y a un feu autour de moi, alors je deviendrai en fe
 			(self neighbourhood noneSatisfy: #isFire)
 				ifFalse: [ bufferState := #fire ]
 				ifTrue: [ bufferState := state ] ]
-]
-
-{ #category : 'pov' }
-FFPlot >> pov [
-
-	<pov>
-	| aColor |
-	aColor := Color black.
-	self isForest ifTrue: [ aColor := CMColor green ].
-	self isFire ifTrue: [ aColor := CMColor red ].
-	self isEmpty ifTrue: [ aColor := CMColor paleTan ].
-	^ CMPointOfView color: aColor
-]
-
-{ #category : 'pov' }
-FFPlot >> povImage [
-
-	<pov>
-	| tile |
-	tile := CMDefaultTileset grassLight.
-	
-	self isForest ifTrue: [ tile := tile add: CMDefaultTileset tree scaledDownTo: 0.7 ].
-	self isFire ifTrue: [ tile := tile add: CMDefaultTileset treeFire scaledDownTo: 0.7 ].
-	self isEmpty ifTrue: [ "do nothing" ].
-	
-	^ CMPointOfView tile: tile
 ]
