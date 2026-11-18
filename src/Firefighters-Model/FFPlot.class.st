@@ -27,7 +27,7 @@ FFPlot >> aspectImage: look [
 
 	<aspect>
 	| image |
-	image := CMImage named: 'grass-light'.
+	image := CMImage named: 'grass'.
 	self isForest ifTrue: [
 		image := image + ((CMImage named: 'tree') size: 0.7) ].
 	self isFire ifTrue: [
