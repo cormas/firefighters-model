@@ -38,7 +38,7 @@ FFFirefighter >> aspectImage: look [
 
 	<aspect>
 	look
-		tile: #firefighter;
+		image: 'firefighter';
 		size: 0.6
 ]
 

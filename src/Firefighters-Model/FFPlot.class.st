@@ -26,9 +26,13 @@ FFPlot >> aspectDefault: look [
 FFPlot >> aspectImage: look [
 
 	<aspect>
-	look tile: #grassLight.
-	self isForest ifTrue: [ look overlayTile: #tree scaledTo: 0.7 ].
-	self isFire ifTrue: [ look overlayTile: #treeFire scaledTo: 0.7 ]
+	| image |
+	image := CMImage named: 'grass-light'.
+	self isForest ifTrue: [
+		image := image + ((CMImage named: 'tree') size: 0.7) ].
+	self isFire ifTrue: [
+		image := image + ((CMImage named: 'tree-fire') size: 0.7) ].
+	look image: image
 ]
 
 { #category : 'accessing' }
