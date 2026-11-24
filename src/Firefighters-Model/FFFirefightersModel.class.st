@@ -105,6 +105,29 @@ FFFirefightersModel >> basicStep [
 	
 ]
 
+{ #category : 'charts' }
+FFFirefightersModel >> chartFire [
+	"How does the fire spread through the forest, and how much do the firefighters extinguish?"
+
+	<chart>
+	^ CMChart new
+		  title: 'Fire';
+		  yTitle: 'Number of plots';
+		  add: (CMLineSeries new x: #currentTimeStep y: #numberOfForestedPlots;
+				   label: 'Forested plots';
+				   color: Color green;
+				   yourself);
+		  add: (CMLineSeries new x: #currentTimeStep y: #numberOfPlotsOnFire;
+				   label: 'Plots on fire';
+				   color: Color red;
+				   yourself);
+		  add: (CMLineSeries new x: #currentTimeStep y: #numberOfExtinguishedPlots;
+				   label: 'Extinguished plots';
+				   color: Color gray;
+				   yourself);
+		  yourself
+]
+
 { #category : 'parameters' }
 FFFirefightersModel >> forestRatio [
 	<parameterFloatMin: 0 max: 1 default: 0.5>
@@ -143,14 +166,14 @@ FFFirefightersModel >> numberOfColumns: anObject [
 { #category : 'probes' }
 FFFirefightersModel >> numberOfEmptyPlots [
 
-	<probeNamed: 'Number of empty plots' color: 'EBE0C7'>
+	<probe>
 	^ ((self @@ FFPlot) select: #isEmpty) size
 ]
 
 { #category : 'probes' }
 FFFirefightersModel >> numberOfExtinguishedPlots [
 
-	<probeNamed: 'Number of extinguished plots' color: '808080'>
+	<probe>
 	^ ((self @@ FFPlot) select: #isEmpty) size - 450
 ]
 
@@ -169,14 +192,14 @@ FFFirefightersModel >> numberOfFirefighters: aNumber [
 { #category : 'probes' }
 FFFirefightersModel >> numberOfForestedPlots [
 
-	<probeNamed: 'Number of forested plots' color: '00FF00'>
+	<probe>
 	^ ((self @@ FFPlot) select: #isForest) size
 ]
 
 { #category : 'probes' }
 FFFirefightersModel >> numberOfPlotsOnFire [
 
-	<probeNamed: 'Number of plots on fire' color: 'FF0000'>
+	<probe>
 	^ ((self @@ FFPlot) select: #isFire) size
 ]
 
